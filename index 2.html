@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Like Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: navy;
+        }
+        .iphone {
+            width: 300px;
+            height: 600px;
+            background-color: black;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .like-button {
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .heart {
+            font-size: 30px;
+            color: white;
+            transition: color 0.3s;
+        }
+        .liked .heart {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone">
+        <div class="like-button" onclick="likeAction(this)">
+            <span class="heart">&#9825;</span>
+        </div>
+    </div>
+
+    <script>
+        function likeAction(button) {
+            let heart = button.querySelector(".heart");
+            heart.innerHTML = heart.innerHTML === "♡" ? "♥" : "♡";
+            button.classList.toggle("liked");
+        }
+    </script>
+</body>
+</html>
